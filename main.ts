@@ -33,3 +33,4 @@ await client.login({
 });
 
 client.getProfile().then(console.log);
+client.getAllChatMids().then(console.log);

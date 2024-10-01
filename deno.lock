@@ -2,11 +2,15 @@
   "version": "3",
   "packages": {
     "specifiers": {
-      "jsr:@evex/linejs-types@^1.3.4": "jsr:@evex/linejs-types@1.3.4",
-      "jsr:@evex/linejs@^1.3.4": "jsr:@evex/linejs@1.3.4",
+      "jsr:@evex/linejs-types@^1.4.1": "jsr:@evex/linejs-types@1.4.1",
+      "jsr:@evex/linejs@^1.4.1": "jsr:@evex/linejs@1.4.1",
       "jsr:@std/assert@1": "jsr:@std/assert@1.0.5",
+      "jsr:@std/bytes@^1.0.2": "jsr:@std/bytes@1.0.2",
       "jsr:@std/dotenv@^0.225.2": "jsr:@std/dotenv@0.225.2",
       "jsr:@std/internal@^1.0.3": "jsr:@std/internal@1.0.3",
+      "jsr:@std/io@^0.224.9": "jsr:@std/io@0.224.9",
+      "jsr:@std/streams@^1.0.6": "jsr:@std/streams@1.0.6",
+      "npm:@clack/prompts@^0.7.0": "npm:@clack/prompts@0.7.0",
       "npm:@types/node": "npm:@types/node@18.16.19",
       "npm:curve25519-js@^0.0.4": "npm:curve25519-js@0.0.4",
       "npm:jsdom@25.0.0": "npm:jsdom@25.0.0",
@@ -16,13 +20,13 @@
       "npm:uqr@^0.1.2": "npm:uqr@0.1.2"
     },
     "jsr": {
-      "@evex/linejs-types@1.3.4": {
-        "integrity": "8ed7a53743c1e7e2309ba26f3fa8a80d209e1b39384e5949ea9d24cf8066b2d2"
+      "@evex/linejs-types@1.4.1": {
+        "integrity": "394c9ccf15ea9948f63d6b35b99a11ce2a037fc744c1f317f0b0da2ee5bb3376"
       },
-      "@evex/linejs@1.3.4": {
-        "integrity": "540fe07b344b05cd314ecb3f748a43f711ff45cc9441bcc836e8362c6fdf3512",
+      "@evex/linejs@1.4.1": {
+        "integrity": "739c078420d2820e7e2f87e31a13bce35fcc6956dde138285a75f3b9840ee568",
         "dependencies": [
-          "jsr:@evex/linejs-types@^1.3.4",
+          "jsr:@evex/linejs-types@^1.4.1",
           "npm:curve25519-js@^0.0.4",
           "npm:jsdom@25.0.0",
           "npm:node-bignumber@^1.2.2",
@@ -36,14 +40,45 @@
           "jsr:@std/internal@^1.0.3"
         ]
       },
+      "@std/bytes@1.0.2": {
+        "integrity": "fbdee322bbd8c599a6af186a1603b3355e59a5fb1baa139f8f4c3c9a1b3e3d57"
+      },
       "@std/dotenv@0.225.2": {
         "integrity": "e2025dce4de6c7bca21dece8baddd4262b09d5187217e231b033e088e0c4dd23"
       },
       "@std/internal@1.0.3": {
         "integrity": "208e9b94a3d5649bd880e9ca38b885ab7651ab5b5303a56ed25de4755fb7b11e"
+      },
+      "@std/io@0.224.9": {
+        "integrity": "4414664b6926f665102e73c969cfda06d2c4c59bd5d0c603fd4f1b1c840d6ee3",
+        "dependencies": [
+          "jsr:@std/bytes@^1.0.2"
+        ]
+      },
+      "@std/streams@1.0.6": {
+        "integrity": "022ed94e380d06b4d91c49eb70241b7289ab78b8c2b4c4bbb7eb265e4997c25c",
+        "dependencies": [
+          "jsr:@std/bytes@^1.0.2"
+        ]
       }
     },
     "npm": {
+      "@clack/core@0.3.4": {
+        "integrity": "sha512-H4hxZDXgHtWTwV3RAVenqcC4VbJZNegbBjlPvzOzCouXtS2y3sDvlO3IsbrPNWuLWPPlYVYPghQdSF64683Ldw==",
+        "dependencies": {
+          "picocolors": "picocolors@1.1.0",
+          "sisteransi": "sisteransi@1.0.5"
+        }
+      },
+      "@clack/prompts@0.7.0": {
+        "integrity": "sha512-0MhX9/B4iL6Re04jPrttDm+BsP8y6mS7byuv0BvXgdXhbV5PdlsHt55dvNsuBCPZ7xq1oTAOOuotR9NFbQyMSA==",
+        "dependencies": {
+          "@clack/core": "@clack/core@0.3.4",
+          "is-unicode-supported": "is-unicode-supported@2.1.0",
+          "picocolors": "picocolors@1.1.0",
+          "sisteransi": "sisteransi@1.0.5"
+        }
+      },
       "@types/node@18.16.19": {
         "integrity": "sha512-IXl7o+R9iti9eBW4Wg2hx1xQDig183jj7YLn8F7udNceyfkbn1ZxmzZXuak20gR40D7pIkIY1kYGx5VIGbaHKA==",
         "dependencies": {}
@@ -145,6 +180,10 @@
         "integrity": "sha512-bCYeRA2rVibKZd+s2625gGnGF/t7DSqDs4dP7CrLA1m7jKWz6pps0LpYLJN8Q64HtmPKJ1hrN3nzPNKFEKOUiQ==",
         "dependencies": {}
       },
+      "is-unicode-supported@2.1.0": {
+        "integrity": "sha512-mE00Gnza5EEB3Ds0HfMyllZzbBrmLOX3vfWoj9A9PEnTfratQ/BcaJOuMhnkhjXvb2+FkY3VuHqtAGpTPmglFQ==",
+        "dependencies": {}
+      },
       "isomorphic-ws@4.0.1_ws@5.2.4": {
         "integrity": "sha512-BhBvN2MBpWTaSHdWRb/bwdZJ1WaehQ2L1KngkCkfLUGF0mAWAT1sQUQacEmQ0jXkFw/czDXPNQSL5u2/Krsz1w==",
         "dependencies": {
@@ -209,6 +248,10 @@
           "entities": "entities@4.5.0"
         }
       },
+      "picocolors@1.1.0": {
+        "integrity": "sha512-TQ92mBOW0l3LeMeyLV6mzy/kWr8lkd/hp3mTg7wYK7zJhuBStmGMBG0BdeDZS/dZx1IukaX6Bk11zcln25o1Aw==",
+        "dependencies": {}
+      },
       "psl@1.9.0": {
         "integrity": "sha512-E/ZsdU4HLs/68gYzgGTkMicWTLPdAftJLfJFlLUAAKZGkStNU72sZjT66SnMDVOfOWY/YAoiD7Jxa9iHvngcag==",
         "dependencies": {}
@@ -242,6 +285,10 @@
         "dependencies": {
           "xmlchars": "xmlchars@2.2.0"
         }
+      },
+      "sisteransi@1.0.5": {
+        "integrity": "sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==",
+        "dependencies": {}
       },
       "symbol-tree@3.2.4": {
         "integrity": "sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==",
@@ -341,10 +388,13 @@
   "remote": {},
   "workspace": {
     "dependencies": [
-      "jsr:@evex/linejs-types@^1.3.4",
-      "jsr:@evex/linejs@^1.3.4",
+      "jsr:@evex/linejs-types@^1.4.1",
+      "jsr:@evex/linejs@^1.4.1",
       "jsr:@std/assert@1",
       "jsr:@std/dotenv@^0.225.2",
+      "jsr:@std/io@^0.224.9",
+      "jsr:@std/streams@^1.0.6",
+      "npm:@clack/prompts@^0.7.0",
       "npm:uqr@^0.1.2"
     ]
   }
