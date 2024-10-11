@@ -23,7 +23,9 @@ client.on("pincall", (pincode) => {
 
 client.on("ready", async (user) => {
 	console.log(`hello!! ${user.displayName} (${user.mid});`);
-	// console.log(await client.getProfile());
+	client.getAllChatMids().then((mids) => {
+    console.log(mids);
+  })
 });
 
 client.on("update:authtoken", (authtoken) => {
