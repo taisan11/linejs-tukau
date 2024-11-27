@@ -1,9 +1,7 @@
 import { Client } from "@evex/linejs";
-import { intro, outro, confirm, select, multiselect, spinner, isCancel, cancel, text } from '@clack/prompts';
 import {renderANSI}from "uqr"
 import { FileStorage } from "@evex/linejs/storage";
 import "@std/dotenv/load"
-import { toLines } from "@std/streams/unstable-to-lines";
 
 console.log("LCC ver 1.0.0")
 const client = new Client({
@@ -23,9 +21,34 @@ client.on("pincall", (pincode) => {
 
 client.on("ready", async (user) => {
 	console.log(`hello!! ${user.displayName} (${user.mid});`);
-	client.getAllChatMids().then((mids) => {
-    console.log(mids);
-  })
+	let now_ui_type = "TOP"
+  Deno.stdin.setRaw(true,{cbreak:true});
+  const buffer = new Uint8Array(1024);
+  const decoder = new TextDecoder();
+  
+  while (true) {
+    const n = await Deno.stdin.read(buffer);
+    if (n === null) break; // 入力がない場合
+  
+    const input = decoder.decode(buffer.subarray(0, n));
+    console.log(input + "aaa");
+  
+    // 特殊キーの判定 (エスケープシーケンス)
+    if (input === '\x1b') {
+      console.log("ESCキーが押されました");
+    } else if (input === '\x1b[A') {
+      console.log("上矢印キーが押されました");
+    } else if (input === '\x1b[B') {
+      console.log("下矢印キーが押されました");
+    } else if (input === '\x1b[C') {
+      console.log("右矢印キーが押されました");
+    } else if (input === '\x1b[D') {
+      console.log("左矢印キーが押されました");
+    } else {
+      console.log("その他のキー:", input);
+    }
+  }
+  const stdin = Deno.stdin.readable
 });
 
 client.on("update:authtoken", (authtoken) => {

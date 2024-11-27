@@ -31,6 +31,3 @@ await client.login({
 	qr:true,
 	polling:["talk","square"]
 });
-
-client.getProfile().then(console.log);
-client.getAllChatMids().then(console.log);
