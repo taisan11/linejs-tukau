@@ -28,6 +28,8 @@ console.log(`ログインしたのは${client.base.profile?.displayName} (${clie
 
 console.log(client.base.authToken||"Auth Tokenがなかったよ!!")
 
+
+console.log(await client.base.talk.getAllContactIds());
 client.on("message", async (message) => {
 	console.log(message.text);
 	if (message.text === "!ping") {

@@ -1,8 +1,8 @@
 {
   "version": "4",
   "specifiers": {
-    "jsr:@evex/linejs-types@^2.0.1": "2.0.1",
-    "jsr:@evex/linejs@^2.0.1": "2.0.1",
+    "jsr:@evex/linejs-types@^2.1.0": "2.1.0",
+    "jsr:@evex/linejs@^2.1.0": "2.1.0",
     "jsr:@std/assert@^1.0.11": "1.0.11",
     "jsr:@std/bytes@^1.0.5": "1.0.5",
     "jsr:@std/dotenv@~0.225.3": "0.225.3",
@@ -18,8 +18,8 @@
     "npm:uqr@~0.1.2": "0.1.2"
   },
   "jsr": {
-    "@evex/linejs@2.0.1": {
-      "integrity": "aa9656eea06e07915b29fdbcbe1c399d27e93e922b4a5fba349aabafb57a638e",
+    "@evex/linejs@2.1.0": {
+      "integrity": "23641d507eeabc8100b625b834df162cb8761554cffe48cabe50f4ccd6694d6e",
       "dependencies": [
         "jsr:@evex/linejs-types",
         "npm:crypto-js",
@@ -30,8 +30,8 @@
         "npm:tweetnacl"
       ]
     },
-    "@evex/linejs-types@2.0.1": {
-      "integrity": "101c46f00a110ae3da119434d853b2b144be0177d761a4e05f766b1e53d6a14b"
+    "@evex/linejs-types@2.1.0": {
+      "integrity": "f0fea5a509d6f00fce96ff5500607cf1dd367bc663ab3de9c5a009f2524fcb88"
     },
     "@std/assert@1.0.11": {
       "integrity": "2461ef3c368fe88bc60e186e7744a93112f16fd110022e113a0849e94d1c83c1",
@@ -111,8 +111,8 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@evex/linejs-types@^2.0.1",
-      "jsr:@evex/linejs@^2.0.1",
+      "jsr:@evex/linejs-types@^2.1.0",
+      "jsr:@evex/linejs@^2.1.0",
       "jsr:@std/assert@^1.0.11",
       "jsr:@std/dotenv@~0.225.3",
       "jsr:@std/io@~0.225.2",
