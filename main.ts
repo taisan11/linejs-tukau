@@ -30,8 +30,10 @@ console.log(client.base.authToken||"Auth Tokenがなかったよ!!")
 
 
 console.log(await client.base.talk.getAllContactIds());
+client.base.on("")
 client.on("message", async (message) => {
-	console.log(message.text);
+	console.log(message);
+	message.raw.contentType
 	if (message.text === "!ping") {
 		const ping = Date.now() - Number(message.raw.createdTime)
 		await message.react("NICE");
