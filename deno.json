@@ -7,6 +7,7 @@
     "@evex/linejs-types": "jsr:@evex/linejs-types@^2.1.2",
     "@std/dotenv": "jsr:@std/dotenv@^0.225.3",
     "@std/io": "jsr:@std/io@^0.225.2",
+    "consola": "npm:consola@^3.4.2",
     "uqr": "npm:uqr@^0.1.2"
   }
 }

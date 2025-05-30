@@ -1,6 +1,7 @@
 import { loginWithQR,loginWithAuthToken, Client } from "@evex/linejs";
 import {FileStorage} from "@evex/linejs/storage"
 import {renderANSI}from "uqr"
+import {consola} from "consola"
 import "@std/dotenv/load"
 
 const storage = new FileStorage("mybot.json");
@@ -28,9 +29,25 @@ console.log(`ログインしたのは${client.base.profile?.displayName} (${clie
 
 console.log(client.base.authToken||"Auth Tokenがなかったよ!!")
 
+// 参加中のチャットルーム一覧を取得  
+const chats = await client.fetchJoinedChats();  
+console.log(`参加中のチャット数: ${chats.length}`);  
 
-console.log(await client.base.talk.getAllContactIds());
-client.base.on("")
+// 各チャットの情報を表示  
+chats.forEach(chat => {  
+    console.log(`チャット名: ${chat.name}, ${chat.mid||""},${chat.raw.picturePath||""}`);  
+});
+
+const selected = await consola.prompt("チャットルームを選んでください。",{type:"select",options:chats.map(chat=>({label:chat.name,value:chat.mid}))})
+
+const chat = await client.getChat(selected);
+console.log(`選択したチャット: ${chat.name} (${chat.mid})`);
+const inputtext = await consola.prompt("メッセージを入力してください。") as string
+await chat.sendMessage(inputtext).catch((err) => {
+	chat.sendMessage({text:inputtext,e2ee:true}).catch((err) => {
+		console.error("メッセージの送信に失敗しました:", err);
+	})
+})
 client.on("message", async (message) => {
 	console.log(message);
 	message.raw.contentType
