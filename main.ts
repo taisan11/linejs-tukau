@@ -41,7 +41,7 @@ contacts.forEach(contact => {
 })
 
 //ChannelIdがわからん!!!
-const chaannelToken = await client.base.channel.approveChannelAndIssueChannelToken()
+const chaannelToken = await client.base.channel.approveChannelAndIssueChannelToken({channelId:"1341209850"})
 
 const a = await client.base.fetch(`https://legy-jp.line-apps.com/hm/api/v1/home/profile.json?profileId=${contacts[0].profileId}&styleMediaVersion=v3&profileBannerRevision=436&timelineVersion=v57&storyVersion=v13&homeId=${contacts[0].mid}&getPostCount=false`,{
 	headers:{
@@ -50,6 +50,12 @@ const a = await client.base.fetch(`https://legy-jp.line-apps.com/hm/api/v1/home/
 		"X-Line-ChannelToken":chaannelToken.channelAccessToken,
 		"X-Line-Application":client.base.request.systemType,
 		"X-Line-Mid":client.base.profile?.mid||"",
+		"user-agent": client.base.request.userAgent,
+		"x-lpv": "1",
+		"x-lhm": "GET",
+		"x-las":"F",
+		"X-Line-Signup-Region":"JP",
+		"accept-encoding": "gzip",
 	}
 })
 
